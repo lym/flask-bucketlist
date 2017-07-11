@@ -1,3 +1,5 @@
 flake8==3.3.0
 pip-tools==1.9.0
 Flask==0.12.2
+bpython==0.16
+pytest==3.1.3
