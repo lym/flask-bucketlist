@@ -1,6 +1,7 @@
 *.pyc
 .coverage
 .env/
+.cache/
 debug.log
 assets/
 tags
