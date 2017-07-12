@@ -6,12 +6,11 @@
   <title>Bucketlist | Sign up</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="stylesheet" href="assets/vendor/stylesheets/bootstrap.css">
-  <link rel="stylesheet" href="assets/vendor/stylesheets/font-awesome.css">
-  <link rel="stylesheet" href="assets/vendor/stylesheets/ionicons.css">
-  <link rel="stylesheet" href="assets/vendor/stylesheets/AdminLTE.css">
-  <link rel="stylesheet" href="assets/vendor/stylesheets/_all-skins.css">
-  <link rel="stylesheet" href="assets/vendor/stylesheets/iCheck/square/blue.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/font-awesome.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/ionicons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/AdminLTE.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/_all-skins.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -82,9 +81,9 @@
   </div> <!-- /.register-box -->
 
 
-  <script src="assets/vendor/javascripts/jquery.js"></script>
-  <script src="assets/vendor/javascripts/bootstrap.js"></script>
-  <script src="assets/vendor/javascripts/icheck.js"></script>
+  <script src="{{ url_for('static', filename='vendor/javascripts/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/javascripts/bootstrap.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/javascripts/icheck.js') }}"></script>
 
   <script>
     $(function () {
