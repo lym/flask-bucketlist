@@ -32,7 +32,6 @@ def test_bucketlist_create():
 
     Bucketlist.create(title=title, description=description)
     len_after = len(table.all())
-    print(bucketlist.db.table(bucketlist.table_name).all())
     assert len(bucketlist.db.table(bucketlist.table_name).all()) != 0
     assert len_before != len_after
 
@@ -46,7 +45,6 @@ def test_user_create():
 
     User.create(email=email, password=passw)
     len_after = len(table.all())
-    print('User Table Content: {}'.format(table.all()))
     assert len(user.db.table(user.table_name).all()) != 0
     assert len_before != len_after
 
@@ -59,10 +57,8 @@ def test_create_item():
 
     Item.create(title=title)
     len_after = len(table.all())
-    print(table.all())
     assert len(table.all()) != 0
     assert len_before != len_after
-    print(table.all())
     assert len(item.db.table(item.table_name).all()) != 0
     assert len_before != len_after
 
