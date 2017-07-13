@@ -4,7 +4,8 @@
       '': 'home',
       'bucketlists_index' : 'bucketlistsIndex',
       'bucketlist_create' : 'bucketlistCreate',
-      'bucketlist'        : 'bucketlistShow'
+      'bucketlist'        : 'bucketlistShow',
+      'user_create'       : 'userCreate'
     },
     initialize: function (options) {
       this.contentElement = '.wrapper';
@@ -69,7 +70,11 @@
     bucketlistShow: function () {
       var view = new app.views.BucketlistShowView({el: this.contentElement});
       this.render(view);
-    }
+    },
+    userCreate: function () {
+      var view = new app.views.UserRegistrationView({el: this.contentElement});
+      this.render(view);
+    },
   });
   app.router = ApplicationRouter;
 })(jQuery, Backbone, _, app);

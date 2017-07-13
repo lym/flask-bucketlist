@@ -120,6 +120,20 @@
     },
   });
 
+  var UserRegistrationView = FormView.extend({
+    templateName: '#user-create-view',
+    submit: function (event) {
+      var data = {};
+      // Call parent class' submit method
+      FormView.prototype.submit.apply(this, arguments);
+      data = this.serializeForm(this.form);
+      console.log(data);
+      $.post(app.usersURL, data)
+        .success($.proxy(this.loginSuccess, this))
+        .fail($.proxy(this.loginFailure, this));
+    },
+  });
+
   var BucketlistShowView = TemplateView.extend({
     templateName: '#bucketlist-view'
   });
@@ -130,4 +144,5 @@
   app.views.BucketlistsIndexView = BucketlistsIndexView;
   app.views.BucketlistCreateView = BucketlistCreateView;
   app.views.BucketlistShowView   = BucketlistShowView;
+  app.views.UserRegistrationView = UserRegistrationView;
 })(jQuery, Backbone, _, app);
