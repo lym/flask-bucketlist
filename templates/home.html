@@ -18,61 +18,42 @@
   <script src="{{ url_for('static', filename='vendor/javascripts/html5shiv.js') }}></script>
   <script src="{{ url_for('static', filename= 'vendor/javascripts/respond.min.js') }}></script>
   <![endif]-->
+
+  <script type="text/html" id='home-template'>
+    {% include '_home_content.html' %}
+  </script>
+
+  <script type="text/html" id='login-template'>
+    {% include '_login.html' %}
+  </script>
+
+  <script type="text/html" id='header-template'>
+    {% include '_header.html' %}
+  </script>
 </head>
 <body class="hold-transition lockscreen">
   <div class="wrapper">
-    <!-- Main Header -->
-    <header class="main-header">
-      <!-- Header Navbar -->
-      <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <li><a href="javascript:void(0)">About</a></li>
-            <li><a href="{{ url_for('user-login') }}">Login</a></li>
-            <li><a href="register.html">Sign up</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+  </div><!-- wrapper -->
 
-  <!-- Automatic element centering -->
-  <div class="lockscreen-wrapper">
-    <div class="lockscreen-logo">
-      <a href="javascript:void(0)">Here Be <b>Bucketlists</b></a>
-    </div>
-    <!-- /.lockscreen-item -->
-    <div class="help-block text-center">
-      What would you love to have accomplished in the next few years?
-      <ul class="nav" role="menu">
-        <li>Climb Everest?</li>
-        <li>Bungee Jump?</li>
-        <li>Sky Dive?</li>
-      </ul>
-
-      <p>
-      Bucket list helps you to create and keep track of the things you feel you
-      have to accomplish within a certain timeframe.
-
-      In keeping with the social networking tradition, you are also able to
-      share your activities with others and have them along with you on your
-      journey to self fulfillment.
-      </p>
-    </div>
-    <div class="text-center">
-      <a href="javascript:void(0);">
-        Excited? Create an account on Bucketlist and start checking items off
-        your bucketlist
-      </a>
-    </div>
-    <div class="lockscreen-footer text-center">
-      Copyright &copy; 2017 <b>Bucketlist Inc.</b><br>
-      All rights reserved
-    </div>
-  </div>
-  <!-- /.center -->
 
   <script src="{{ url_for('static', filename='vendor/javascripts/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/javascripts/underscore.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/javascripts/backbone.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/javascripts/bootstrap.js') }}"></script>
+  <script id="config" type="text/json">
+      {
+        "models"      : {},
+        "collections" : {},
+        "views"       : {},
+        "router"      : null,
+        "loginURL"    : "/login/"
+      }
+  </script>
+
+  <script src="{{ url_for('static', filename='javascripts/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascripts/model.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascripts/collections.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascripts/views.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascripts/routes.js') }}"></script>
 </body>
 </html>
