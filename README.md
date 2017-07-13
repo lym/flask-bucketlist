@@ -4,23 +4,21 @@ being developed primarily as a requirement of the Andela pre-bootcamp
 activity.
 
 ## Usage
+Launch the app server with:
+
+    $ ./run_app.py
+
+and point your web browser to `http://0.0.0.0:5000/`
 
 ### Running Tests
 This project leverages the [pytest](https://docs.pytest.org/en/latest/contents.html)
 testing framework so tests can be run with:
+
     $ cd [project root]
-    $ pytest
-
-
-For now the project is previewable with a web browser via `file://`
-
-You can point a browser to `file://[project path]/home.html` from there
-you are able to navigate to the login and sign up pages.
-
-Note that <i>new</i> and <i>edit</i> forms are structurally identical
-except the former contains prefilled data.
+    $ PYTHONPATH=. pytest -r Pf --cov=app
 
 
 ## Coding Style Rules
 - [HTML and CSS](http://codeguide.co/)
 - [EcmaScript/JavaScript](https://github.com/airbnb/javascript)
+- [Python](https://www.python.org/dev/peps/pep-0008/)
