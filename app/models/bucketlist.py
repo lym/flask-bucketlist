@@ -37,13 +37,7 @@ class Bucketlist(BaseModel):
         table = cls.db.table(cls.table_name)
         table.remove(where('id') == _id)
 
-    """
     @classmethod
-    def fetch_record(cls, _id):
-        table = self.db.table(self.table_name)
-        record = table.get(where('id') == _id)
-        result = {}
-        result['id'] =
-        result['created'] =
-        result['modified'] =
-    """
+    def all(cls):
+        table = cls.db.table('bucketlists')
+        return table.all()
