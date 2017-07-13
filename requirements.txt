@@ -13,8 +13,9 @@ coverage==4.4.1           # via pytest-cov
 curtsies==0.2.11          # via bpython
 first==2.0.1              # via pip-tools
 flake8==3.3.0
+flask-api==0.7.1
 flask-login==0.4.0
-flask==0.12.2             # via flask-login
+flask==0.12.2
 greenlet==0.4.12          # via bpython
 idna==2.5                 # via requests
 itsdangerous==0.24        # via flask
