@@ -39,54 +39,25 @@
     <section class="content">
 
       <!-- Page Content Here -->
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
-          <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
-          </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          List description summary
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
+    <% if (bucketlists !== null) { %>
+      <% _.each(bucketlists.models, function (bucketlist) { %>
 
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
+          <h3 class="box-title"><%- bucketlist.get('data')['title'] %></h3>
           <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
+            <span class="label label-default">
+              <a href="#bucketlists/<%- bucketlist.get('id')%>">Edit</a> | Share | Delete
+            </span>
           </div><!-- /.box-tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
+          <%- bucketlist.get('data')['description'] %>
           List description summary
         </div><!-- /.box-body -->
       </div><!-- /.box -->
-
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
-          <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
-          </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          List description summary
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
-          <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
-          </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          List description summary
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-
+      <% }); %>
+    <% } %>
     </section>
   </div>
 </div>
