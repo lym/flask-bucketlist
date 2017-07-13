@@ -101,7 +101,33 @@
     }
   });
 
-  app.views.HomepageView  = HomepageView;
-  app.views.LoginView     = LoginView;
-  app.views.HeaderView    = HeaderView;
+  var BucketlistsIndexView = TemplateView.extend({
+    templateName: '#bucketlists-index-template',
+  });
+
+  var BucketlistCreateView = FormView.extend({
+    templateName: '#bucketlist-create-view',
+    // events: {'click button.create-list': 'createList'},
+    submit: function (event) {
+      var data = {};
+      // Call parent class' submit method
+      FormView.prototype.submit.apply(this, arguments);
+      data = this.serializeForm(this.form);
+      console.log(data);
+      $.post(app.bucketlistsURL, data)
+        .success($.proxy(this.loginSuccess, this))
+        .fail($.proxy(this.loginFailure, this));
+    },
+  });
+
+  var BucketlistShowView = TemplateView.extend({
+    templateName: '#bucketlist-view'
+  });
+
+  app.views.HomepageView        = HomepageView;
+  app.views.LoginView           = LoginView;
+  app.views.HeaderView          = HeaderView;
+  app.views.BucketlistsIndexView = BucketlistsIndexView;
+  app.views.BucketlistCreateView = BucketlistCreateView;
+  app.views.BucketlistShowView   = BucketlistShowView;
 })(jQuery, Backbone, _, app);

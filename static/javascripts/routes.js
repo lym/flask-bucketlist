@@ -1,7 +1,10 @@
 (function ($, Backbone, _, app) {
   var ApplicationRouter = Backbone.Router.extend({
     routes: {
-      '': 'home'
+      '': 'home',
+      'bucketlists_index' : 'bucketlistsIndex',
+      'bucketlist_create' : 'bucketlistCreate',
+      'bucketlist'        : 'bucketlistShow'
     },
     initialize: function (options) {
       this.contentElement = '.wrapper';
@@ -53,6 +56,19 @@
       }
       this.current = view;
       this.current.render();
+    },
+    bucketlistsIndex: function () {
+      var view = new app.views.BucketlistsIndexView({el: this.contentElement});
+      this.render(view);
+
+    },
+    bucketlistCreate: function () {
+      var view = new app.views.BucketlistCreateView({el: this.contentElement});
+      this.render(view);
+    },
+    bucketlistShow: function () {
+      var view = new app.views.BucketlistShowView({el: this.contentElement});
+      this.render(view);
     }
   });
   app.router = ApplicationRouter;

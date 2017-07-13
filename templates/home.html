@@ -30,6 +30,19 @@
   <script type="text/html" id='header-template'>
     {% include '_header.html' %}
   </script>
+
+  <script type="text/html" id='bucketlists-index-template'>
+    {% include '_bucketlists_index.html' %}
+  </script>
+
+  <script type="text/html" id='bucketlist-create-view'>
+    {% include '_bucketlist_create_view.html' %}
+  </script>
+
+  <script type="text/html" id='bucketlist-view'>
+    {% include '_bucketlist_show_view.html' %}
+  </script>
+
 </head>
 <body class="hold-transition lockscreen">
   <div class="wrapper">
@@ -46,7 +59,8 @@
         "collections" : {},
         "views"       : {},
         "router"      : null,
-        "loginURL"    : "/login/"
+        "loginURL"    : "/login/",
+        "bucketlistsURL" : "/bucketlists/"
       }
   </script>
 

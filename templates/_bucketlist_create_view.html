@@ -1,0 +1,87 @@
+    <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="{{ url_for('static', filename='images/lym-160x160.jpg') }}"
+                 class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>John Smith</p>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+          <li class="header">Menu</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Lists</span></a></li>
+          <li><a href="#"><i class="fa fa-link"></i> <span>Create new list</span></a></li>
+          <li><a href="#"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>New list</h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Page Content Here -->
+
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">New list</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal">
+            <div class="box-body">
+              <div class="form-group">
+                <label for="list_title" class="col-sm-2 control-label">List Title</label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="list_title"
+                         name='title' placeholder="List Title">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="list_descr" class="col-sm-2 control-label">List summary</label>
+
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="list_descr"
+                            name="description"
+                            placeholder="Something about this list ...">
+                  </textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="list_image" class="col-sm-2 control-label">Add list image</label>
+                <div class="col-sm-10">
+                  <input type="file" id="list_image">
+
+                  <p class="help-block">Add an image that is representative of the list.</p>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button type="submit" class="btn btn-default">Cancel</button>
+              <button type="submit" class="create-list btn btn-info pull-right">Create list</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
