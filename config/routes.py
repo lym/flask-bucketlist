@@ -3,10 +3,12 @@ from app.controllers import (
     UsersController,
     LoginController,
     BucketlistsController,
+    LandingPageController,
 )
 from config.application import App
 
-App.add_url_rule('/', view_func=HomeController.as_view('home'))
+App.add_url_rule('/', view_func=LandingPageController.as_view('landing_page'))
+App.add_url_rule('/bucketlist/', view_func=HomeController.as_view('home'))
 
 App.add_url_rule(
     '/users/',
