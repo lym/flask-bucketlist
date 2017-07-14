@@ -55,6 +55,12 @@
           <%- bucketlist.get('data')['description'] %>
           List description summary
         </div><!-- /.box-body -->
+        <div class="box-footer">
+          <small>
+            Start date: <%- bucketlist.get('data')['start_date']%> |
+            End date: <%- bucketlist.get('data')['due_date'] || 'Not Specified'%>
+          </small>
+        </div>
       </div><!-- /.box -->
       <% }); %>
     <% } %>
