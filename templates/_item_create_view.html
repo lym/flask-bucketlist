@@ -1,0 +1,69 @@
+    <% if (bucketlistId !== null) { %>
+    <section class="content-header">
+      <h1>New Item</h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Page Content Here -->
+
+      <!-- Horizontal Form -->
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">New list</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="item_title" class="col-sm-2 control-label">Item Title</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="item_title"
+                       name='title' placeholder="List Title">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="item_descr" class="col-sm-2 control-label">Item summary</label>
+
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" id="item_descr"
+                          name="description"
+                          placeholder="Something about this Item ...">
+                </textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="start_date" class="col-sm-2 control-label">Start Date</label>
+
+              <div class="col-sm-10">
+                <input type="date" class="form-control" id="start_date"
+                       name='start_date' placeholder="Start Date">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="due_date" class="col-sm-2 control-label">Due Date</label>
+
+              <div class="col-sm-10">
+                <input type="date" class="form-control" id="due_date"
+                       name='due_date' placeholder="Due Date">
+              </div>
+            </div>
+
+
+            <input type="hidden" class="form-control" id="bucketlist_id"
+                   name='bucketlist_id' value="<%- bucketlistId %>">
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-default">Cancel</button>
+            <button type="submit" class="create-list btn btn-info pull-right">Create Item</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+  <% } %>

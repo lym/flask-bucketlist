@@ -142,8 +142,60 @@
     },
   });
 
+  var NewItemView = FormView.extend({
+    templateName: '#item-create-view',
+    initialize: function (bucketlistId) {
+      this.bucketlistId = bucketlistId;
+      FormView.prototype.initialize.apply(this, arguments);
+    },
+    submit: function (event) {
+      var data = {};
+      // Call parent class' submit method
+      FormView.prototype.submit.apply(this, arguments);
+      data = this.serializeForm(this.form);
+      console.log(data);
+      $.post(app.itemsURL, data)
+        .success($.proxy(this.loginSuccess, this))
+        .fail($.proxy(this.loginFailure, this));
+    },
+    getContext: function () {
+      console.log(this.bucketlistId);
+      return {'bucketlistId': this.bucketlistId};
+    }
+  });
+
   var BucketlistShowView = TemplateView.extend({
-    templateName: '#bucketlist-view'
+    templateName: '#bucketlist-view',
+    events: {'click button.add-item': 'renderNewItemForm'},
+    initialize: function (options) {
+      var self = this;
+      TemplateView.prototype.initialize.apply(this, arguments);
+      this.bucketlistId = options.bucketlistId;
+      this.bucketlist = null;
+      self.bucketlist = app.bucketlists.push({id: self.bucketlistId});
+      self.bucketlist.fetch({
+        url: '/bucketlists/?item=' + self.bucketlistId,
+        success: function () {
+          self.render();
+        }
+      });
+    },
+    getContext: function () {
+      return {bucketlist: this.bucketlist};
+    },
+    renderNewItemForm: function (event) {
+      console.log('Attempting to add item...')
+      var view  = new NewItemView(this.bucketlist.get('id'));
+      var link  = $(event.currentTarget);
+      event.preventDefault();
+      link.before(view.el);
+      link.hide();
+      view.render();
+      view.on('done', function () {
+        link.show();
+      });
+
+    }
   });
 
   app.views.HomepageView        = HomepageView;
