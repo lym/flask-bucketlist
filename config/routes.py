@@ -4,6 +4,7 @@ from app.controllers import (
     LoginController,
     BucketlistsController,
     LandingPageController,
+    ItemsController,
 )
 from config.application import App
 
@@ -19,4 +20,8 @@ App.add_url_rule('/login/', view_func=LoginController.as_view('login'))
 App.add_url_rule(
     '/bucketlists/',
     view_func=BucketlistsController.as_view('bucketlists')
+)
+App.add_url_rule(
+    '/items/',
+    view_func=ItemsController.as_view('items')
 )
