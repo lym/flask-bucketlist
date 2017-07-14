@@ -70,5 +70,8 @@
     }
   });
 
-  app.session = new Session();
+  app.models.Bucketlist = Backbone.Model.extend({});
+  app.models.Item       = Backbone.Model.extend({});
+  app.models.User       = Backbone.Model.extend({});
+  app.session           = new Session();
 })(jQuery, Backbone, _, app);

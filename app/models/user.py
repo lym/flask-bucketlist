@@ -44,3 +44,8 @@ class User(BaseModel):
         print('ID of Item for deletion'.format(_id))
         table = cls.db.table(cls.table_name)
         table.remove(where('id') == _id)
+
+    @classmethod
+    def all(cls):
+        table = cls.db.table('users')
+        return table.all()

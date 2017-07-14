@@ -4,7 +4,8 @@
       '': 'home',
       'bucketlists_index' : 'bucketlistsIndex',
       'bucketlist_create' : 'bucketlistCreate',
-      'bucketlist'        : 'bucketlistShow'
+      'bucketlist/:id'    : 'bucketlistShow',
+      'user_create'       : 'userCreate'
     },
     initialize: function (options) {
       this.contentElement = '.wrapper';
@@ -66,10 +67,17 @@
       var view = new app.views.BucketlistCreateView({el: this.contentElement});
       this.render(view);
     },
-    bucketlistShow: function () {
-      var view = new app.views.BucketlistShowView({el: this.contentElement});
+    bucketlistShow: function (id) {
+      var view = new app.views.BucketlistShowView({
+        el: this.contentElement,
+        bucketlistId: id
+      });
       this.render(view);
-    }
+    },
+    userCreate: function () {
+      var view = new app.views.UserRegistrationView({el: this.contentElement});
+      this.render(view);
+    },
   });
   app.router = ApplicationRouter;
 })(jQuery, Backbone, _, app);

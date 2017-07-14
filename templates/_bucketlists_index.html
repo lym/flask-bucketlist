@@ -20,7 +20,7 @@
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Lists</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Create new list</span></a></li>
+        <li><a href="#bucketlist_create"><i class="fa fa-link"></i> <span>Create new list</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Profile</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
@@ -39,54 +39,31 @@
     <section class="content">
 
       <!-- Page Content Here -->
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
-          <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
-          </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          List description summary
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
+    <% if (bucketlists !== null) { %>
+      <% _.each(bucketlists.models, function (bucketlist) { %>
 
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
+          <h3 class="box-title"><%- bucketlist.get('data')['title'] %></h3>
           <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
+            <span class="label label-default">
+              <a href="#bucketlists/<%- bucketlist.get('id')%>">Edit</a> | Share | Delete
+            </span>
           </div><!-- /.box-tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
+          <%- bucketlist.get('data')['description'] %>
           List description summary
         </div><!-- /.box-body -->
+        <div class="box-footer">
+          <small>
+            Start date: <%- bucketlist.get('data')['start_date']%> |
+            End date: <%- bucketlist.get('data')['due_date'] || 'Not Specified'%>
+          </small>
+        </div>
       </div><!-- /.box -->
-
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
-          <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
-          </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          List description summary
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">List title</h3>
-          <div class="box-tools pull-right">
-            <span class="label label-default">Edit | Share | Delete</span>
-          </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          List description summary
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-
+      <% }); %>
+    <% } %>
     </section>
   </div>
 </div>

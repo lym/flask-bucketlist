@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/ionicons.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/AdminLTE.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/_all-skins.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/stylesheets/iCheck/square/blue.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,6 +44,14 @@
     {% include '_bucketlist_show_view.html' %}
   </script>
 
+  <script type="text/html" id='user-create-view'>
+    {% include '_user_register.html' %}
+  </script>
+
+  <script type="text/html" id='item-create-view'>
+    {% include '_item_create_view.html' %}
+  </script>
+
 </head>
 <body class="hold-transition lockscreen">
   <div class="wrapper">
@@ -53,6 +62,7 @@
   <script src="{{ url_for('static', filename='vendor/javascripts/underscore.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/javascripts/backbone.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/javascripts/bootstrap.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/javascripts/icheck.js') }}"></script>
   <script id="config" type="text/json">
       {
         "models"      : {},
@@ -60,7 +70,9 @@
         "views"       : {},
         "router"      : null,
         "loginURL"    : "/login/",
-        "bucketlistsURL" : "/bucketlists/"
+        "bucketlistsURL" : "/bucketlists/",
+        "itemsURL"    : "/items/",
+        "usersURL": "/users/"
       }
   </script>
 
