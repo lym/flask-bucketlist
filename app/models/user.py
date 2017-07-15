@@ -26,6 +26,15 @@ class User(BaseModel):
 
     @classmethod
     def create(cls, **kwargs):
+        """
+        Creates a new user record in the users table.
+
+        User.create(email, password, first_name, last_name, username='') -> None  # NOQA
+        email: new user's email address
+        password: new user's password
+        first_name: new user's first name
+        last_name: new user's last name
+        """
         db_table = cls.db.table(cls.table_name)
         if kwargs is None or len(kwargs) == 0:
             return
