@@ -8,7 +8,7 @@ from app.models import (
 
 bucketlist = Bucketlist('New Bucketlist')
 user = User('email@anonmail.com', 'weakpass')
-item = Item('New Item')
+item = Item('New Item', 118266162315588491253214850569623365886)
 
 
 def test_default_attributes():
@@ -52,12 +52,14 @@ def test_user_create():
 def test_create_item():
     """It should create an item """
     title = 'New Item'
+    bucketlist_id = item.bucketlist
     table = item.db.table('items')
     len_before = len(table.all())
+    assert len_before == 0, 'No items yet'
 
-    Item.create(title=title)
+    Item.create(title=title, bucketlist_id=bucketlist_id)
     len_after = len(table.all())
-    assert len(table.all()) != 0
+    assert len(table.all()) != 0, 'Expected at least one item in the items table'  # NOQA
     assert len_before != len_after
     assert len(item.db.table(item.table_name).all()) != 0
     assert len_before != len_after
