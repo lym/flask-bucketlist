@@ -1,9 +1,10 @@
 from flask import (
+    abort,
     request,
     jsonify,
 )
 from flask.views import MethodView
-from flask.ext.api import status
+from flask_api import status
 
 from app.models import User
 
@@ -17,17 +18,19 @@ class UsersController(MethodView):
         email = request.form.get('email')
         password = request.form.get('password')
         # username = request.form.get('username')
-        if accept_terms is None:
-            content = 'You must agree to the terms to use the service'
-            status_code = status.HTTP_400_BAD_REQUEST
-            res = {'content': content, 'status': status_code}
-            return jsonify(res)
+        if (len(email.split()) == 0 or
+                len(password.split()) == 0 or accept_terms is None):
+            abort(status.HTTP_400_BAD_REQUEST)
+        # Check if user already exists
+        if User.valid_user(email, password):
+            print('User already exists!')
+            abort(status.HTTP_400_BAD_REQUEST)
         User.create(
             email=email, password=password, first_name=first_name,
             last_name=last_name
         )
         print(request.form)
-        res = {'Status': 'OK'}
+        res = status.HTTP_201_CREATED
         return jsonify(res)
 
     def get(self):
