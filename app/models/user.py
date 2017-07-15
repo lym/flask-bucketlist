@@ -58,3 +58,19 @@ class User(BaseModel):
     def all(cls):
         table = cls.db.table('users')
         return table.all()
+
+    @classmethod
+    def valid_user(cls, email, passw):
+        # Return true if user with pass == user_pass is found in users table
+
+        for user in cls.all():
+            if ((user.get('data').get('email') == email) and
+                    (user.get('data').get('password') == passw)):
+                return True
+            break
+        return False
+
+    @classmethod
+    def first(cls):
+        """ Returns first user in users table """
+        return cls.all()[0]
