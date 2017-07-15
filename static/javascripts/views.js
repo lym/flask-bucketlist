@@ -98,6 +98,28 @@
     }
   });
 
+  var SignupView = FormView.extend({
+    id: 'signup',
+    templateName: '#signup-template',
+    submit: function (event) {
+      var data = {};
+      // Call parent class' submit method
+      FormView.prototype.submit.apply(this, arguments);
+      data = this.serializeForm(this.form);
+      console.log(data);
+      $.post(app.registerURL, data)
+        .success($.proxy(this.registerSuccess, this))
+        .fail($.proxy(this.registerFailure, this));
+    },
+    registerSuccess: function (data) {
+      // TODO: Message with, "An email has been sent to your inbox, click link
+      // to confirm account regn.
+      // app.session.save(data.token);
+      // this.done();
+      this.done();  // trigger 'done' event
+    }
+  });
+
   var HeaderView = TemplateView.extend({
     tagName: 'header',
     templateName: '#header-template',
@@ -123,20 +145,6 @@
       data = this.serializeForm(this.form);
       console.log(data);
       $.post(app.bucketlistsURL, data)
-        .success($.proxy(this.loginSuccess, this))
-        .fail($.proxy(this.loginFailure, this));
-    },
-  });
-
-  var UserRegistrationView = FormView.extend({
-    templateName: '#user-create-view',
-    submit: function (event) {
-      var data = {};
-      // Call parent class' submit method
-      FormView.prototype.submit.apply(this, arguments);
-      data = this.serializeForm(this.form);
-      console.log(data);
-      $.post(app.usersURL, data)
         .success($.proxy(this.loginSuccess, this))
         .fail($.proxy(this.loginFailure, this));
     },
@@ -200,8 +208,8 @@
 
   app.views.HomepageView        = HomepageView;
   app.views.LoginView           = LoginView;
+  app.views.SignupView          = SignupView;
   app.views.HeaderView          = HeaderView;
   app.views.BucketlistCreateView = BucketlistCreateView;
   app.views.BucketlistShowView   = BucketlistShowView;
-  app.views.UserRegistrationView = UserRegistrationView;
 })(jQuery, Backbone, _, app);

@@ -30,6 +30,18 @@
         var args = _.without(arguments, original);
         if (app.session.authenticated()) {
           original.apply(this, args);
+        } else if (window.location.hash === "#user_create") { // User Regn
+          app.session.delete();  // FIXME: This should not be here
+          console.log('User Registration view route triggered');
+          $('header').hide();
+          $(this.contentElement).hide();
+          signup = new app.views.SignupView();
+          $(this.contentElement).after(signup.el);
+          signup.on('done', function () {
+            $(this.contentElement).show();
+            original.apply(this, args);
+          }, this);
+          signup.render();
         } else {
           // We are dealing with a non-logged-in user
           $(this.contentElement).hide();
@@ -75,7 +87,7 @@
       this.render(view);
     },
     userCreate: function () {
-      var view = new app.views.UserRegistrationView({el: this.contentElement});
+      var view = new app.views.SignupView({el: this.contentElement});
       this.render(view);
     },
   });
