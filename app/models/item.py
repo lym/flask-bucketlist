@@ -18,7 +18,7 @@ class Item(BaseModel):
     def create(cls, **kwargs):
         print('Arguments dictionary: {}'.format(kwargs))
         db_table = cls.db.table(cls.table_name)
-        if (kwargs is None) or (kwargs.get('bucketlist_id') == 0):
+        if (kwargs is None) or (kwargs.get('bucketlist_id') is None):
             return
         if (kwargs.get('start_date') is None) or len(kwargs.get('start_date')) == 0:  # NOQA
             kwargs['start_date'] = datetime.now(cls.tz)
