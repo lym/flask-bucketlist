@@ -1,0 +1,3 @@
+[flake8]
+exclude = tests/*,umeme/migrations/*,backend/*
+ignore = E221, E203
