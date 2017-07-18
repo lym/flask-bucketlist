@@ -1,7 +1,7 @@
 # Bucketlist
 This project is an implementation of a bucketlist app. This project is
-being developed primarily as a requirement of the Andela pre-bootcamp
-activity.
+being developed primarily as a pet project to help me understand how the
+Flask Python framework works.
 
 ## Features
 - User signup
