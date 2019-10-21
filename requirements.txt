@@ -35,4 +35,4 @@ six==1.10.0               # via bpython, pip-tools
 tinydb==3.3.1
 urllib3==1.21.1           # via requests
 wcwidth==0.1.7            # via curtsies
-werkzeug==0.12.2          # via flask
+werkzeug==0.15.3          # via flask
